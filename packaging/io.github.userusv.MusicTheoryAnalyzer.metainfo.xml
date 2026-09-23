@@ -9,14 +9,18 @@
 
   <description>
     <p>
-      Music Theory Analyzer is a desktop application for analyzing MIDI files
+      MIDI Analyzer is a desktop application for analyzing MIDI files
       and exploring musical structure.
     </p>
     <p>
-      It provides MIDI analysis including key detection, note distribution,
-      melody statistics, chord progression analysis, and a piano roll view.
+      It provides key detection, note distribution, melody statistics,
+      chord progression analysis, and a piano roll view.
     </p>
   </description>
+
+  <developer id="io.github.userusv">
+    <name>userusv</name>
+  </developer>
 
   <launchable type="desktop-id">io.github.userusv.MusicTheoryAnalyzer.desktop</launchable>
 
