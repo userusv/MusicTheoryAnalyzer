@@ -1,0 +1,47 @@
+app-id: io.github.userusv.MusicTheoryAnalyzer
+runtime: org.kde.Platform
+runtime-version: "6.10"
+sdk: org.kde.Sdk
+command: MusicTheoryAnalyzerApp
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --socket=pulseaudio
+
+modules:
+
+  - name: midifile
+    config-opts:
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/craigsapp/midifile/archive/refs/heads/master.tar.gz
+        sha256: 77fbe010f6aa52f13057c318b4a671d446fdfdd68cd674d38ffc5b0153b76aa1
+
+  - name: fluidsynth
+    buildsystem: cmake-ninja
+    config-opts:
+      - -Denable-pulseaudio=ON
+      - -Denable-alsa=OFF
+      - -Denable-jack=OFF
+      - -Denable-sdl3=OFF
+    sources:
+      - type: archive
+        url: https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.5.4.tar.gz
+        sha256: 72f5720328fe44e2e5c67813885f0a6b4b004d048bd2eeeb0c0064074ebff530
+
+      - type: archive
+        url: https://github.com/kthohr/gcem/archive/012ae73c6d0a2cb09ffe86475f5c6fba3926e200.tar.gz
+        sha256: 34ab0ee87a9eb26d3087fa9b49c2572ea8ee03db0c9705b83648301a3a3fc172
+        dest: gcem
+
+  - name: music-theory-analyzer
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: dir
+        path: ..

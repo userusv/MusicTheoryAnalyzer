@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Music Theory Analyzer
+Comment=Analyze MIDI files and explore music theory
+Exec=MusicTheoryAnalyzerApp
+Icon=io.github.userusv.MusicTheoryAnalyzer
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Education;
